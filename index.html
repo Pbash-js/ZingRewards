@@ -13,28 +13,46 @@
     <header class="header">
         <div class="logo"></div>
     </header>
-    <section class="hero-page">
+    <section id="hero-page" class="hero-page">
         <div class="gradient-1"></div>
         <div class="maincontainer-1">
             <div class="img-container">
                 <img src="assets/HeroLady.png" alt="HeroLady" class="hero-image">
+                <div class="img-vignette"></div>
             </div>
             <div class="hero-text-container">
-
-                <h2 class="title-1">One place for all</h2>
-                <h2 class="title-1">your rewards</h2>
-    
+                <img src="assets/ZingLogoWhiteFull.png" alt="Logo" class="logofull-image logofull-bigscreen">
+                <span class="titlepara">
+                    <h2 class="title-1">One place for all</h2>
+                    <h2 class="title-1">your rewards</h2>
+                </span>
+                <p class="descriptext">
+                    <span>
+                        Get 
+                    </span>
+                    <span class="highlight-text">
+                        exclusive rewards
+                    </span> 
+                    <span>
+                        your favorite D2C brands
+                    </span> </p>
                 <img src="assets/ZingLogoWhiteFull.png" alt="Logo" class="logofull-image">
-                <div class="buttonInnerContainer">
-    
+                <div id = "join-button" class="buttonInnerContainer">
                     <div class="buttonOuterContainer">
-    
                         <h4 class="buttonText">JOIN NOW</h4>
                     </div>
+                    <div class="buttonInnerContainer buttonGlow"></div>
                 </div>
             </div>
         </div>
         <div class="gradient-2"></div>
     </section>
+    <script>
+        const button = document.getElementById("join-button") 
+
+        button.addEventListener("click", () =>{
+            
+        })
+    </script>
 </body>
 </html>

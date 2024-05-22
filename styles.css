@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 
@@ -33,6 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Rectangle 2 */
@@ -54,6 +56,17 @@
     height: 50vh;
     background: linear-gradient(180deg, rgba(24, 98, 246, 0.1) 15.46%, rgba(0, 0, 0, 0.9) 71.1%);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.img-vignette{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(180deg, rgba(24, 98, 246, 0) 15.46%, rgba(0, 0, 0, 0.9) 71.1%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: -webkit-fill-available;
+    opacity: 0;
 }
 
 .maincontainer-1{
@@ -93,6 +106,10 @@
     object-fit: cover;
 }
 
+.logofull-bigscreen{
+    display: none;
+}
+
 .title-1{
     position: relative;
     top: -20px;
@@ -105,16 +122,55 @@ line-height: 39.01px;
 text-align: center;
 color: #fff;
 text-shadow: 0 0 30px #000, 0 0 5px #0000FF;
+word-break: keep-all;
+white-space: pre-wrap;
 }
 
+.highlight-text{
+    background: rgb(255,10,209);
+background: linear-gradient(90deg, rgba(255,10,209,1) 0%, rgba(70,87,204,1) 55%, rgba(98,205,152,1) 74%, rgba(255,205,51,1) 100%);
+    background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+text-shadow: none;
+font-weight: bold;
+font-size: 1rem;
+filter: brightness(2);
+padding-bottom: 0.5rem;
+}
+
+.descriptext{
+    position: relative;
+    color: #fff;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 1rem;
+}
+
+.descriptext::after{
+    content: '';
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: block;
+    position: absolute;
+    filter: blur(20px);
+    z-index: -1;
+    opacity: 0.7;
+}
 
 /* Join Now button */
 
 .buttonInnerContainer{
+    cursor: pointer;
     position: absolute;
     bottom: 0;
-    width: 148px;
-    height: 45px;
+    width: 150px;
+    height: 50px;
     background-color: wheat;
     
     background: url(assets/bggradient.jpg);
@@ -123,6 +179,7 @@ text-shadow: 0 0 30px #000, 0 0 5px #0000FF;
     mix-blend-mode: normal;
     border-radius: 61px;
     animation: buttongradientmove 5s infinite;
+    
 }
 
 @keyframes buttongradientmove {
@@ -171,6 +228,23 @@ font-weight: 800;
 text-align: center;
 color: #000;
 font-size: 1.2rem;
+user-select: none;
+}
+
+
+.buttonGlow{
+    position: absolute !important;
+    top: 0 !important;
+    z-index: -1;
+    background-blend-mode: multiply;
+    transform: scale(1.3);
+    filter: blur(20px);
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.buttonInnerContainer:hover > .buttonGlow, .buttonInnerContainer:active > .buttonGlow{
+    opacity: 1;
 }
 
 @media (min-width: 576px) { 
@@ -183,8 +257,8 @@ font-size: 1.2rem;
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+
     .title-1{
-        word-wrap: break-word;
         line-height: 0.9;
         font-size: 3rem;
     }
@@ -194,21 +268,31 @@ font-size: 1.2rem;
         align-self: flex-end;
     }
 
+    .hero-image{
+        height: 60vh;
+    }
+
     .maincontainer-1{
         flex-direction: row-reverse;
         height: 100vh;
         width: 100vw;
+        top: 0;
+        height: 100%;
     }
 
     .buttonInnerContainer{
         position: relative;
-        top: 10vw;
-        width: 180px;
-        height: 60px;
+        top: 6vw;
+        height: 200vh;
+        max-height: 8vh;
+        width: 18vw;
+    }
+
+    .buttonText{
+        font-size: 1.3rem;
     }
 
     .hero-page{
-
         background-position-x: 0;
         background-size: cover;
     }
@@ -218,13 +302,70 @@ font-size: 1.2rem;
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     
- }
+    .titlepara{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
     .title-1{
         word-wrap: break-word;
         line-height: 0.9;
-        font-size: 4rem;
+        font-size: 2rem;
+    }
+
+    .buttonInnerContainer{
+        height: 7vh;
+        width: 10vw;
+    }
+
+    .descriptext {
+        position: relative;
+        font-size: 2rem;
+        top: 5vh;
+    }
+
+    .highlight-text{
+        font-size: 3rem;
+    }
+
+    .img-vignette{
+        opacity: 1;
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .buttonText{
+        font-size: 2rem;
+    }
+    .img-container{
+        width: 30%;
+    }
+    .titlepara{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    } 
+    .maincontainer-1{
+        top: 0;
+        height: 100%;
+    }
+    .logofull-image{
+        width: 100%;
+        margin-bottom: 10%;
+        display: none;
+    }
+    .hero-image{
+        height: 80vh;
+    }
+
+    .title-1{
+        font-size: 3rem;
+    }
+    
+
+    .logofull-bigscreen{
+        display: block;
     }
  }
