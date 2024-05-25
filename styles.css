@@ -718,4 +718,7 @@ background: linear-gradient(45deg, rgba(98,140,205,1) 0%, rgba(98,205,152,1) 50%
         text-align: center;
        }
     
+    .offerContainer{
+        gap: 1rem;
+    }
  }
