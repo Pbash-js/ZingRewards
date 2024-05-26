@@ -103,12 +103,16 @@ body{
     z-index: 10;
     position: relative;
    display: flex;
+   margin-top: 15vh;
+   top: -5vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
 .hero-text-container{
+    position: relative;
+    top: -40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,7 +164,7 @@ background: linear-gradient(90deg, rgba(255,10,209,1) 0%, rgba(70,87,204,1) 55%,
 color: transparent;
 text-shadow: none;
 font-weight: bold;
-font-size: 1rem;
+font-size: 1.3rem;
 filter: brightness(2);
 padding-bottom: 0.5rem;
 }
@@ -171,10 +175,10 @@ padding-bottom: 0.5rem;
     text-align: center;
     font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   gap: 1rem;
-  margin: 5% 0;
+  margin: 5% 5%;
 }
 
 .descriptext::after{
@@ -494,14 +498,16 @@ background: linear-gradient(45deg, rgba(98,140,205,1) 0%, rgba(98,205,152,1) 50%
 }
 
 .leftPanelConfirmation > span{
-    width: 100%;
-    font-size: 1rem;
+    width: 90%;
+    font-size: 1.2rem;
     text-align: center;
-   }
+}
 
 
 @media (min-width: 576px) { 
-
+    .hero-text-container{
+        top: unset
+    }
     .logofull-image{
         width: 70%;
     }
@@ -512,6 +518,7 @@ background: linear-gradient(45deg, rgba(98,140,205,1) 0%, rgba(98,205,152,1) 50%
 @media (min-width: 768px) { 
 
     .title-1{
+        top: 0;
         line-height: 0.9;
         font-size: 3rem;
     }
@@ -715,7 +722,7 @@ background: linear-gradient(45deg, rgba(98,140,205,1) 0%, rgba(98,205,152,1) 50%
         display: none;
     }
     .hero-image{
-        height: 80vh;
+        height: 90vh;
     }
 
     .title-1{
